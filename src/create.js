@@ -41,7 +41,8 @@ export default async function create(appName, option) {
   const tempListData = tempList.map((item) => {
     return {
       ...item,
-      value: "direct:" + item.clone_url,
+      value: "direct:" + item.clone_url + "#main",
+      // value: item.git_url,
     };
   });
 
@@ -61,7 +62,7 @@ export default async function create(appName, option) {
       );
       return;
     }
-    repository = "direct:" + template.url;
+    repository = "direct:" + template.clone_url + "#main";
   } else {
     // 从模板列表中选择
 
