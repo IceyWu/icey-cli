@@ -32,3 +32,8 @@ export async function changePackageJson(name, info) {
     console.log(logSymbols.warning, chalk.yellow("更新项目信息失败,请手动修改package.json"));
   }
 }
+
+// 获取仓库地址
+export async function getCloneUrl(data) {
+  return `${data.clone_url}`
+}

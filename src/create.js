@@ -3,7 +3,7 @@ import shell from "shelljs";
 import chalk from "chalk";
 import logSymbols from "log-symbols";
 import clone from "./clone.js";
-import { removeDir, changePackageJson } from "./utils.js";
+import { removeDir, changePackageJson, getCloneUrl } from "./utils.js";
 import { templates, messages } from "./constants.js";
 import {
   inquirerConfirm,
@@ -41,8 +41,7 @@ export default async function create(appName, option) {
   const tempListData = tempList.map((item) => {
     return {
       ...item,
-      value: "direct:" + item.clone_url + "#main",
-      // value: item.git_url,
+      value: getCloneUrl(item),
     };
   });
 
@@ -62,7 +61,7 @@ export default async function create(appName, option) {
       );
       return;
     }
-    repository = "direct:" + template.clone_url + "#main";
+    repository = getCloneUrl(template);
   } else {
     // 从模板列表中选择
 
