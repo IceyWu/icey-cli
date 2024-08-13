@@ -5,7 +5,7 @@ import { table } from "table";
 import { program } from "commander";
 import create from "./create.js";
 import { templates } from "./constants.js";
-import { baseInfo } from "./info.js";
+import { baseInfo, checkVersionInfo } from "./info.js";
 import { getDataHandler } from "./repo.js";
 import { formatTime } from "./utils.js";
 import { to } from "@iceywu/utils";
@@ -25,6 +25,14 @@ program
   .option("-f --force", "强制覆盖本地同名项目")
   .option("-i --ignore", "忽略项目相关描述,快速创建项目")
   .action(create);
+
+// 检查版本更新
+program
+  .command("update")
+  .description("检查并提示版本更新")
+  .action(async () => {
+    checkVersionInfo();
+  });
 
 // 查看模板列表
 program
