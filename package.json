@@ -1,6 +1,6 @@
 {
   "name": "icey-cli",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "提供多个情景下的项目模板,快捷搭建项目🎉",
   "type": "module",
   "author": "IceyWu <https://github.com/IceyWu/>",

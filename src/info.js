@@ -18,7 +18,7 @@ export const pkgName = figlet.textSync(pkg.name, {
 });
 
 const welcomeMessage = gradientString("cyan", "magenta").multiline(
-  `您好! 欢迎使用 \n${pkgName} \n开源脚手架\n为您提供多个情景下的项目模板,快捷搭建项目🎉`
+  `您好! 欢迎使用 \n${pkgName} \n开源脚手架\n当前版本：${pkg.version} \n为您提供多个情景下的项目模板,快捷搭建项目🎉`
 );
 
 const boxenOptions = {
