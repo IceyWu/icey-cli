@@ -9,6 +9,7 @@ import { baseInfo } from "./info.js";
 import { getDataHandler } from "./repo.js";
 import { formatTime } from "./utils.js";
 import { to } from "@iceywu/utils";
+import shell from "shelljs";
 
 // 读取package.json配置信息
 const pkg = fs.readJsonSync(new URL("../package.json", import.meta.url));
@@ -45,6 +46,7 @@ program
       chalk.white("更新时间"),
     ]);
     console.log(table(data));
+    shell.exit(1);
   });
 
 // 配置脚手架基本信息
