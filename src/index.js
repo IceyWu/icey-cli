@@ -7,6 +7,7 @@ import create from "./create.js";
 import { templates } from "./constants.js";
 import { baseInfo } from "./info.js";
 import { getDataHandler } from "./repo.js";
+import { formatTime } from "./utils.js";
 import { to } from "@iceywu/utils";
 
 // 读取package.json配置信息
@@ -35,11 +36,13 @@ program
       chalk.greenBright(item.name),
       chalk.white(item.svn_url),
       chalk.white(item.description),
+      chalk.white(formatTime(item.updated_at)),
     ]);
     data.unshift([
       chalk.white("模板名称"),
       chalk.white("模板地址"),
       chalk.white("模板描述"),
+      chalk.white("更新时间"),
     ]);
     console.log(table(data));
   });

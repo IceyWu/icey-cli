@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import fs from "fs-extra";
 import chalk from "chalk";
 import path from "path";
@@ -37,3 +38,16 @@ export async function changePackageJson(name, info) {
 export async function getCloneUrl(data) {
   return `${data.clone_url}`
 }
+
+export const formatTime = (
+  time,
+  format = "YYYY-MM-DD HH:mm:ss",
+  isISO = true
+) => {
+  if (!time) return "";
+  isISO && (time = new Date(time).getTime());
+  if (time.toString().length < 13) {
+    time = time * 1000;
+  }
+  return dayjs(time).format(format);
+};

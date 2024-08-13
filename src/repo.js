@@ -1,4 +1,5 @@
 import axios from "axios";
+import { templates } from "./constants.js";
 export const getDataHandler = async () => {
   const data = await axios
     .get(
@@ -6,8 +7,10 @@ export const getDataHandler = async () => {
     )
     .then((res) => {
       return res.data;
+    })
+    .catch((err) => {
+      return templates;
     });
-
   const publicRepos = data.filter((repo) => !repo.private && !repo.archived);
   const publicAndNotForkRepos = publicRepos.filter((repo) => !repo.fork);
 
